@@ -1,0 +1,23 @@
+{
+  "name": "peep-notes",
+  "version": "1.0.0",
+  "description": "app to save notes about your contacts",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vrk/peep-notes.git"
+  },
+  "author": "vrk",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vrk/peep-notes/issues"
+  },
+  "homepage": "https://github.com/vrk/peep-notes#readme",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}
