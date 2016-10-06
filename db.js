@@ -15,10 +15,18 @@ exports.getDatabase = function() {
   });
 }
 
+function loadFixture(db, jsonPath) {
+  const data = require(jsonPath);
+  const names = Object.keys(data.collections);
+  (async function() {
+    for (const name of names) {
+      let collection = await db.createCollection(name);
+      await collection.insert(data.collections[name]);
+    }
+  })();
+}
+
 exports.fixtures = function(db) {
-  const fakePeeps = require('./test/fixtures/model-peeps.json');
-  const fakeUsers = require('./test/fixtures/model-users.json');
-  console.log('fixtures:');
-  console.log(fakePeeps);
-  console.log(fakeUsers);
+  loadFixture(db, './test/fixtures/model-peeps.json');
+  loadFixture(db, './test/fixtures/model-users.json');
 }
